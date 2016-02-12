@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso de Ruby and Rails</title>
+</head>
+<body>
+	<h1>Nuevo usuario</h1>
+	<%= form_for(@usuario) do |f| %>
+		
+		<div class="fiel">
+			<%= f.label :nombre %> <br>
+			<%= f.text_field :nombre %>
+		</div>
+
+		<div class="field">
+			<%= f.label :email %> <br>
+			<%= f.text_field :email %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit 'Guardar' %>
+		</div>
+
+	<% end %>
+</body>
+</html>

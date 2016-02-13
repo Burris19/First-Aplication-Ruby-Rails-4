@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 		@usuario = User.new(user_params)
 
 		if @usuario.save 
+			flash[:success] = "Bienvenidos #{@usuario.nombre}"
 			redirect_to users_url
 		else
 			render action: 'new'
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:email, :nombre)
+		params.require(:user).permit(:email, :nombre, :password, :password_confirmation)
 	end
 
 end

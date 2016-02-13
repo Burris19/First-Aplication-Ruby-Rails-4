@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+	has_may :posts
+
 	validates :nombre, presence: true #, length: { maximum: 5 }
 
 	#VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

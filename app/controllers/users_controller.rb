@@ -1,29 +1,23 @@
 class UsersController < ApplicationController
 
+	before_action :set_user, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@usuarios = User.all
 	end
 
-	def show
-		@usuario = User.find(params[:id])
-		render action: "detalle"		
-	end
-
-	def detalle
-		@usuario = User.find(1)
+	def show				
 	end
 
 	def destroy
-		User.find(params[:id]).destroy
+		@usuario.destroy
 		redirect_to users_url		
 	end
 
-	def edit
-		@usuario = User.find(params[:id])		
+	def edit		
 	end
 
 	def update
-		@usuario = User.find(params[:id])
 
 		if @usuario.update_attributes(user_params)
 			redirect_to users_url
@@ -53,6 +47,11 @@ class UsersController < ApplicationController
 	private
 	def user_params
 		params.require(:user).permit(:email, :nombre, :password, :password_confirmation)
+	end
+
+	private
+	def set_user
+		@usuario = User.find(params[:id])
 	end
 
 end

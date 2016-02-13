@@ -54,4 +54,6 @@ MiblogApp::Application.routes.draw do
   #     resources :products
   #   end
     resources :users
+
+    match '/signup', to: 'users#new', via: 'get'
 end
